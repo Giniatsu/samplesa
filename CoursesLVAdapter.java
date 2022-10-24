@@ -1,12 +1,15 @@
 package com.example.elective2_garcia;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,15 +45,28 @@ public class CoursesLVAdapter extends ArrayAdapter<DataModal> {
         pddesc.setText(dataModal.getDescription());
         pdprice.setText(dataModal.getPrice());
 
-        Picasso.get().load(dataModal.getImgUrl()).into(pdimage);
+        Picasso.get().load(dataModal.getImgUrl().get(0)).into(pdimage);
 
-        /*listitemView.setOnClickListener(new View.OnClickListener() {
+        listitemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProductViewActivity pp = new ProductViewActivity();
-                pp.openProductView(view);
+                Toast.makeText(getContext(), "Item clicked is : " + dataModal.getName(), Toast.LENGTH_SHORT).show();
+                String productname = pdname.getText().toString();
+                String productdesc = pddesc.getText().toString();
+                String productprice = pdprice.getText().toString();
+                String p1 = dataModal.getImgUrl().get(0);
+                Log.d("T10000", p1);
+                String p2 = dataModal.getImgUrl().get(1);
+                Intent intent = new Intent(getContext(), ProductViewActivity2.class);
+                intent.putExtra("name", productname);
+                intent.putExtra("desc", productdesc);
+                intent.putExtra("price", productprice);
+                /*image url below*/
+                intent.putExtra("image1", p1);
+                intent.putExtra("image2", p2);
+                getContext().startActivity(intent);
             }
-        });*/
+        });
 
         return listitemView;
     }
