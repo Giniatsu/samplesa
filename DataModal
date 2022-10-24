@@ -1,0 +1,52 @@
+package com.example.elective2_garcia;
+
+import java.util.List;
+
+public class DataModal {
+    private String name;
+    private String description;
+    private String price;
+    private List<String> imgUrl;
+
+    public DataModal() {
+    }
+
+    public DataModal(String name, String description, String price, List<String> imgUrl) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public List<String> getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(List<String> imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+}
